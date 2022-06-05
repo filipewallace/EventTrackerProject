@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `music` (
   `artist` VARCHAR(45) NOT NULL,
   `album` VARCHAR(45) NULL,
   `song_title` VARCHAR(45) NOT NULL,
-  `music_link` TEXT(1000) NULL,
+  `apple_music_link` TEXT(1000) NULL,
   `date` DATE NULL,
   `description` VARCHAR(1000) NULL,
   `album_pic` TEXT(1000) NULL,
@@ -48,14 +48,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `musicdb`;
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (1, 'BTS', 'You Never Walk Alone', 'Blood Sweat & Tears', NULL, '2022-06-03', 'My first BTS song I ever heard', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (2, 'TXT', 'The Chaos Chapter: FREEZE', 'Anti-Romantic', NULL, '2022-06-02', 'Best song for when you want to stay lonely', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (3, 'Twice', 'The Feels', 'The Feels', NULL, '2022-06-01', 'The song you play when you\'re crushing on someone', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (4, 'Kim-Woo-sung', 'Genre', 'Lazy', NULL, '2022-05-31', 'Such a good lazy day song', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (5, 'NCT Dream', 'Hot Sauce', 'Hot Sauce', NULL, '2022-05-30', 'Just a bop honestly', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (6, 'BeO', 'Counting Stars', 'Counting Stars', NULL, '2022-05-29', 'Don\'t usually like rap songs but this one slaps', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (7, 'Blackpink', 'The Album', 'Ice Cream', NULL, '2022-05-28', 'Listen to this when you\'re feeling saucy', NULL);
-INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `music_link`, `date`, `description`, `album_pic`) VALUES (8, 'Day6', 'The Book of Us', 'You Make Me', NULL, '2022-05-27', 'Listen to this when you\'re feeling emotional and want to belt out a song but dont have vocal skills', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (1, 'BTS', 'You Never Walk Alone', 'Blood Sweat & Tears', NULL, '2022-06-03', 'My first BTS song I ever heard', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (2, 'TXT', 'The Chaos Chapter: FREEZE', 'Anti-Romantic', NULL, '2022-06-02', 'Best song for when you want to stay lonely', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (3, 'Twice', 'The Feels', 'The Feels', NULL, '2022-06-01', 'The song you play when you\'re crushing on someone', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (4, 'Kim-Woo-sung', 'Genre', 'Lazy', NULL, '2022-05-31', 'Such a good lazy day song', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (5, 'NCT Dream', 'Hot Sauce', 'Hot Sauce', NULL, '2022-05-30', 'Just a bop honestly', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (6, 'BeO', 'Counting Stars', 'Counting Stars', NULL, '2022-05-29', 'Don\'t usually like rap songs but this one slaps', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (7, 'Blackpink', 'The Album', 'Ice Cream', NULL, '2022-05-28', 'Listen to this when you\'re feeling saucy', NULL);
+INSERT INTO `music` (`id`, `artist`, `album`, `song_title`, `apple_music_link`, `date`, `description`, `album_pic`) VALUES (8, 'Day6', 'The Book of Us', 'You Make Me', NULL, '2022-05-27', 'Listen to this when you\'re feeling emotional and want to belt out a song but dont have vocal skills', NULL);
 
 COMMIT;
 
