@@ -32,7 +32,7 @@ public class Song {
 	private String description;
 
 	@Column(name = "album_pic")
-	private String albumURL;
+	private String albumURL; 
 
 	// -----------------------------------------------------------------------------------//
 	public Song() {

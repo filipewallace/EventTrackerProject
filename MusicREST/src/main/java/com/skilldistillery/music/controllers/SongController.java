@@ -70,20 +70,34 @@ public class SongController {
 		}
 	}
 
-	@PutMapping("music/{id}")
-	public Song updateSong( @PathVariable("id") Integer id, @RequestBody Song newSong, HttpServletResponse resp) {
+//	@PutMapping("music/{id}")
+//	public Song updateSong( @PathVariable("id") Integer id, @RequestBody Song newSong, HttpServletResponse resp) {
+//		try {
+//			newSong = svc.updateSong(id, newSong);
+//			if (newSong == null) {
+//				resp.setStatus(404); 
+//			}
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//			resp.setStatus(400);
+//			newSong = null;
+//		}
+//		return newSong;
+//	}
+	
+	@PutMapping("music/{songID}")
+	public Song updateSong (@RequestBody Song song, @PathVariable Integer songID, HttpServletResponse response) {
 		try {
-			newSong = svc.updateSong(id, newSong);
-			if (newSong == null) {
-				resp.setStatus(404); 
+			song = svc.updateSong(songID, song);
+			if (song == null) {
+				response.setStatus(404);
 			}
-		} catch (Exception e) {
 			
-			e.printStackTrace();
-			resp.setStatus(400);
-			newSong = null;
+		} catch (Exception e) {
+			response.setStatus(400);
 		}
-		return newSong;
+		return song;
 	}
 
 	@GetMapping("music/search/{keyword}")

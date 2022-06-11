@@ -56,9 +56,9 @@ public class SongServiceImpl implements SongService {
 	}
 
 	@Override
-	public Song updateSong(Integer id, Song song) {
+	public Song updateSong(Integer songId, Song song) {
 		Song update = null;
-		Optional<Song> opt = repo.findById(id);
+		Optional<Song> opt = repo.findById(songId);
 		if (opt.isPresent()) {
 			update = opt.get();
 			update.setArtist(song.getArtist());

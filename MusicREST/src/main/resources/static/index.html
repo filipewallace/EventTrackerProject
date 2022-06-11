@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Music Tracker</title>
+<script type="text/javascript" src= "js/eventTracker.js"> </script>
+</head>
+<body>
+
+<h1>Song of The Day Tracker</h1>
+
+<form name="songForm">
+    <input type="number" name="songId"> <br>
+    <button name="lookup">Get Entry by Id</button>
+  </form>
+  <div id="output">
+    <div id="songData"></div>
+  </div>
+
+<br>
+<hr>
+
+<form name="newEntryForm">
+    <input type="text" name="artist" placeholder="Artist"> <br>
+    <input type="text" name="album" placeholder="Album"> <br>
+    <input type="text" name="songTitle" placeholder="Song Title"> <br>
+    <input type="text" name="appleMusicLink" placeholder="Apple Music Link"> <br>
+    <input type="text" name="description" placeholder="Description"> <br>
+    <input type="text" name="albumURL" placeholder="Album Image URL"> <br>
+    
+    <button type="submit" name="newEntryButton">Add Song Entry</button>
+  </form>
+ 
+
+  <br>
+  <form name="deleteEntryForm">
+    <input type="number" name="songId" placeholder="Song ID #"> <br>
+    <button type ='submit' name="deleteEntryButton">Delete</button>
+</form>
+
+<br>
+
+ <form name="updateEntryForm" id="updateForm">
+    <input type="number" name="songId" placeholder="Song Entry ID"> <br>
+    <input type="text" name="artist" placeholder="Artist"> <br>
+    <input type="text" name="album" placeholder="Album"> <br>
+    <input type="text" name="songTitle" placeholder="Song Title"> <br>
+    <input type="text" name="appleMusicLink" placeholder="Apple Music Link"> <br>
+    <input type="text" name="description" placeholder="Description"> <br>
+    <input type="text" name="albumURL" placeholder="Album Image URL"> <br>
+    
+    <button type="submit" name="submit" value="${songID}">Update Song Entry</button>
+  </form>
+
+
+  <div id = "songList"></div>
+
+  <br>
+  <div id = "aggregateDiv">
+  <button id = "aggrButton" name="aggrButton">Get Aggregate Data</button>
+  </div>
+
+  <div id = 'allSongData'></div>
+
+</body>
+</html>

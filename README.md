@@ -26,5 +26,5 @@ This API project was to create a program that keeps track of information over ti
 | `Song` | **POST** | api/music | Creates a new song of the day entry |
 | `List<<Song>>` | **GET** | api/music/artist/{artist} | Retrieve song of the day entries by artist |
 | `Boolean` | **DELETE** | api/music/delete/{songID} | Delete a song of the day entry by it's ID |
-| `Song` | **PUT** | api/music/{id} | Updates information in an existing entry by it's ID |
+| `Song` | **PUT** | api/music/{songID} | Updates information in an existing entry by it's ID |
 | `List<Song>` | **GET** | api/music/search/{keyword} | Searches song entries by a keyword|
