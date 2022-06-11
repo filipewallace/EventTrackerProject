@@ -29,17 +29,17 @@ document.deleteEntryForm.deleteEntryButton.addEventListener('click', function(e)
 	deleteEntry(songId);	
 		});
 
-/*document.updateEntryForm.updateEntryButton.addEventListener('click', function(e){
+document.updateEntryForm.updateEntryButton.addEventListener('click', function(e){
 	e.preventDefault();
 	let songId = document.updateEntryForm.songId.value;
-	updateEntry(songId);	
-		});*/
+	update(songId);	
+		});
 
-document.getElementById("aggrButton").addEventListener('click', function(e){
+/*document.getElementById("aggrButton").addEventListener('click', function(e){
 	e.preventDefault();
 	// let songs = document.
 	aggregateSongs(music);	
-		});
+		});*/
 
 
 
@@ -216,9 +216,9 @@ xhr.send(JSON.stringify(updatedSong));
 }*/
 
 function update(songId) {
-	let form = document.updateEntryForm;
+	let form = document.getElementById('updateForm');
 	let updatedSong = {
-		id             : form.artist.id,
+		id             : form.songId.value,
 		artist         : form.artist.value,
         album          : form.album.value,
         songTitle      : form.songTitle.value,
@@ -226,8 +226,10 @@ function update(songId) {
         description    : form.description.value,
         albumURL       : form.albumURL.value,
 	};
+	console.log(updatedSong);
 	let xhr = new XMLHttpRequest();
-	xhr.open("PUT", `api/music/${songId}`);
+	xhr.open("PUT", 'api/music/' + songId);
+	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status == 200 || xhr.status == 201) {
@@ -238,14 +240,13 @@ function update(songId) {
 			}
 		}
 	};
-	xhr.setRequestHeader("Content-type", "application/json");
-	/*xhr.send(JSON.stringify(updatedSong));*/
-	xhr.send();
-	updateEntryForm.reset();
+	xhr.send(JSON.stringify(updatedSong));
+	/*xhr.send();*/
+/*	updateEntryForm.reset();*/
 }
 
 
-
+getAllEntries();
 
 function getAllEntries() {
 	let xhr = new XMLHttpRequest();
@@ -255,7 +256,7 @@ function getAllEntries() {
 			if(xhr.status < 400){
 				let data = xhr.responseText;
 				let songs = JSON.parse(data);
-				displayAllEntries(allSongs);
+				displayAllEntries(songs);
 				aggregateSongs(songs);
 
 			}
@@ -303,9 +304,9 @@ function displayAllEntries(songs) {
 
 
 
-function aggregateSongs(songs){
+function aggregateSongs(music){
 	let counter = 0;
-	for (let i = 0; i < songs.length; i ++){
+	for (let i = 0; i < music.length; i ++){
 		counter++;
 	}
 

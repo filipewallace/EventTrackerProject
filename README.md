@@ -2,7 +2,11 @@
 
 ## Overview
 
-This API project was to create a program that keeps track of information over time, and can implement all CRUD operations for entries in the database. My project tracks songs of the day, so a user can track their favorite song by date and see how their taste changes/grows. The project has a MySQL database that has the song entries. The database is managed by Spring Data JPA (which allows the repository and service interfaces for the query database operations) and Spring REST services (which allows the CRUD operations to be performed with the more concise and efficient controller methods).
+This API project was to create a program that keeps track of information over time, and can implement all CRUD operations for entries in the database. My project tracks songs of the day, so a user can track their favorite song by date and see how their taste changes/grows. The project has a MySQL database that has the song entries. The database is managed by Spring Data JPA (which allows the repository and service interfaces for the query database operations) and Spring REST services (which allows the CRUD operations to be performed with the more concise and efficient controller methods). 
+<br>
+JavaScript was added on the second week of this project. The backend mapping and testing was completed from the previous part of the project. JavaScript was added to dynamically add to our HTML file so that the user can implement the basic CRUD commands from the front end. The page has a few forms which the user can update an entry, delete an entry, or create a new entry. All the entries are also displayed.
+
+
 
 ## Technologies Used
 * Java
@@ -16,6 +20,10 @@ This API project was to create a program that keeps track of information over ti
 * MySQL
 * Gradle
 * Postman
+<br>
+* JavaScript
+* XML
+* DOM
 
 ## API Implementation
 
