@@ -20,7 +20,6 @@ JavaScript was added on the second week of this project. The backend mapping and
 * MySQL
 * Gradle
 * Postman
-<br>
 * JavaScript
 * XML
 * DOM
