@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SongsService {
-
+  urlImage: string = 'http://api.skilldistillery.com:8080/poke/data/poke';
   private url = environment.baseUrl + 'api/music';
 
   constructor(
@@ -23,4 +23,31 @@ export class SongsService {
       })
     );
   }
+
+  create(song: Song) {
+    return this.http.post<Song>(this.url, song).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error creating song');
+      })
+    );
+  }
+
+  destroy(id: number) {
+    return this.http.delete<Song>(this.url + "/delete/" + id).pipe (
+      catchError((err: any) => {
+        console.log(err);
+        return throwError("error deleting song");
+      })
+    );
+  }
+  update(song: Song) {
+    return this.http.put<Song>(this.url + "/"+ song.id, song).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError("error updating song");
+      })
+    );
+  }
+
 }

@@ -1,6 +1,70 @@
-<h1>Music Tracker</h1>
+<header>
+  <h1 class="mx-auto">Music Tracker</h1>
+  <blockquote>contains: {{getSongCount()}} titles</blockquote>
+  <button class='btn btn-success' (click)='showSongForm()'>Add a song</button>
+  <hr>
+  <div id="AddSong">
+    <form *ngIf='createSong'>
+      <input type="text" name="Artist" [(ngModel)]="newSong.artist" placeholder="Artist"><br>
+      <input type="text" name="Album" [(ngModel)]="newSong.album" placeholder="Album"><br>
+      <input type="text" name="Song" [(ngModel)]="newSong.songTitle" placeholder="Song"><br>
+      <input type="text" name="Link" [(ngModel)]="newSong.appleMusicLink" placeholder="Apple Music Link"><br>
+      <input type="text" name="Date" [(ngModel)]="newSong.date" placeholder="Date Listened"><br>
+      <input type="text" name="Description" [(ngModel)]="newSong.description" placeholder="Description"><br>
+      <input type="text" name="Picture" [(ngModel)]="newSong.albumURL" placeholder="Album Picture"><br>
+      <input class='btn btn-success' type='submit' (click)='addSong()' />
+      <input class='btn btn-danger' type='submit' value="cancel" (click)='reload()' />
+    </form>
+  </div>
+</header>
 
-<h3>Favorite Songs</h3>
-<ul>
-  <li *ngFor="let songs of songList">{{songs.artist}}</li>
-</ul>
+<table class="table table-striped" *ngIf='!selected'>
+  <thead class='thead-dark'>
+    <tr>
+      <th scope='col'>Artist</th>
+      <th scope='col'>Album</th>
+      <th scope='col'>Song</th>
+      <th scope='col'>Apple Music Link</th>
+      <th scope='col'>Date Listened</th>
+      <th scope='col'>Description</th>
+      <th scope='col'>Album Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let songs of songList">
+      <td (click)='displaySong(songs)'>{{songs.artist}}</td>
+      <td>{{songs.album}}</td>
+      <td>{{songs.songTitle}}</td>
+      <td>{{songs.appleMusicLink}}</td>
+      <td>{{songs.date}}</td>
+      <td>{{songs.description}}</td>
+      <td>{{songs.albumURL}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf='selected'>
+  <h2>Artist: {{selected.artist}}</h2>
+  <h5>Album: {{selected.album}}</h5>
+  <h5>Song: {{selected.songTitle}}</h5>
+  <h5>Apple Music Link: {{selected.appleMusicLink}}</h5>
+  <h5>Date: {{selected.date}}</h5>
+  <h5>Description: {{selected.description}}</h5>
+  <h5>Album Picture: {{selected.albumURL}}</h5>
+  <hr>
+  <button (click)='displaySongList()'>Go Back</button>
+  <button (click)='setEditSong()'>Edit</button>
+  <button (click)='deleteSong(selected.id)'>DELETE</button>
+
+  <form *ngIf='editSong'>
+    <input type="text" value = {{selected.artist}} name="artist" [(ngModel)]="editSong.artist"><br>
+    <input type="text" value = {{selected.album}} name="album" [(ngModel)]="editSong.album"><br>
+    <input type="text" value = {{selected.songTitle}} name="songTitle" [(ngModel)]="editSong.songTitle"><br>
+    <input type="text" value = {{selected.appleMusicLink}} name="appleMusicLink" [(ngModel)]="editSong.appleMusicLink"><br>
+    <input type="text" value = {{selected.date}} name="date" [(ngModel)]="editSong.date"><br>
+    <input type="text" value = {{selected.description}} name="description" [(ngModel)]="editSong.description"><br>
+    <input type="text" value = {{selected.albumURL}} name="albumURL" [(ngModel)]="editSong.albumURL"><br>
+    <button (click)="reload()">Cancel</button>
+    <button (click)="updateSong(editSong)">Save</button>
+  </form>
+</div>
