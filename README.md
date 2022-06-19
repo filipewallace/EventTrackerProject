@@ -23,6 +23,7 @@ JavaScript was added on the second week of this project. The backend mapping and
 * JavaScript
 * XML
 * DOM
+* Angular
 
 ## API Implementation
 
